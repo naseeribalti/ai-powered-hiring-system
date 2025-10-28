@@ -9,7 +9,7 @@ import { RegisterForm } from './components/auth/RegisterForm';
 
 // Lazy load pages for better performance
 const HomePage = React.lazy(() => import('./pages/HomePage').then(module => ({ default: module.HomePage })));
-const Dashboard = React.lazy(() => import('./pages/DashboardPage').then(module => ({ default: module.DashboardPage })));
+const Dashboard = React.lazy(() => import('./pages/Dashboard').then(module => ({ default: module.Dashboard })));
 const Profile = React.lazy(() => import('./pages/ProfilePage').then(module => ({ default: module.ProfilePage })));
 const Jobs = React.lazy(() => import('./pages/JobsPage').then(module => ({ default: module.JobsPage })));
 
