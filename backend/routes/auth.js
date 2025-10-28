@@ -1,17 +1,26 @@
 const express = require('express');
+const {
+  register,
+  login,
+  getMe,
+  logout,
+  updateDetails,
+  updatePassword
+} = require('../controllers/authController');
+const { protect } = require('../middleware/authMiddleware');
+const {
+  validateRegistration,
+  validateLogin,
+  validateUpdatePassword
+} = require('../middleware/validationMiddleware');
+
 const router = express.Router();
 
-// Placeholder routes for authentication
-router.post('/register', (req, res) => {
-  res.json({ message: 'Register endpoint - to be implemented' });
-});
-
-router.post('/login', (req, res) => {
-  res.json({ message: 'Login endpoint - to be implemented' });
-});
-
-router.post('/logout', (req, res) => {
-  res.json({ message: 'Logout endpoint - to be implemented' });
-});
+router.post('/register', validateRegistration, register);
+router.post('/login', validateLogin, login);
+router.get('/logout', protect, logout);
+router.get('/me', protect, getMe);
+router.put('/updatedetails', protect, updateDetails);
+router.put('/updatepassword', protect, validateUpdatePassword, updatePassword);
 
 module.exports = router;
