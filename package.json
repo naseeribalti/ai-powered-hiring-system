@@ -1,0 +1,40 @@
+{
+  "name": "ai-powered-hiring-system",
+  "version": "1.0.0",
+  "description": "AI-powered hiring platform with resume matching and job recommendations",
+  "main": "index.js",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:ai": "cd ai_service && python app.py",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "test:all": "cd backend && npm test && cd ../frontend && npm test",
+    "build:frontend": "cd frontend && npm run build",
+    "start:backend": "cd backend && npm start",
+    "start:ai": "cd ai_service && python app.py",
+    "setup:ai": "cd ai_service && pip install -r requirements.txt",
+    "lint:all": "cd backend && npm run lint && cd ../frontend && npm run lint"
+  },
+  "keywords": [
+    "ai",
+    "hiring",
+    "recruitment",
+    "resume-matching",
+    "job-recommendations",
+    "machine-learning"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ai-powered-hiring-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/ai-powered-hiring-system/issues"
+  },
+  "homepage": "https://github.com/yourusername/ai-powered-hiring-system#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}

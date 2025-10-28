@@ -1,0 +1,94 @@
+# AI Hiring System Development Rules
+
+## Project Structure
+- This is a multi-service application with backend (Node.js), frontend (React), and AI service (Python)
+- Always maintain separation of concerns between services
+- Use consistent naming conventions: camelCase for JS/TS, snake_case for Python
+- Follow the established directory structure
+
+## Development Guidelines
+
+### Backend (Node.js/Express)
+1. Use Express.js with MongoDB and Mongoose
+2. Implement proper error handling with try-catch blocks
+3. Use async/await for all asynchronous operations
+4. Implement JWT authentication middleware
+5. Use environment variables for configuration
+6. Follow RESTful API design principles
+7. Implement proper validation using express-validator
+8. Use middleware for common functionality (auth, logging, etc.)
+
+### Frontend (React/TypeScript)
+1. Use React with TypeScript for type safety
+2. Follow React hooks best practices
+3. Use styled-components for styling
+4. Implement proper error boundaries
+5. Use React Query for data fetching and caching
+6. Implement proper loading states and error handling
+7. Use React Router for navigation
+8. Follow component composition patterns
+
+### AI Service (Python/Flask)
+1. Use Flask for the web framework
+2. Implement proper error handling
+3. Use environment variables for configuration
+4. Follow PEP 8 style guidelines
+5. Implement proper logging
+6. Use type hints for better code documentation
+7. Implement proper file upload handling
+8. Use scikit-learn and spaCy for AI/ML functionality
+
+## Code Standards
+
+### General
+- Write comprehensive documentation
+- Use meaningful variable and function names
+- Implement proper error handling
+- Write unit tests for critical functionality
+- Use environment variables for all configuration
+- Implement proper logging throughout the application
+
+### API Design
+- Use consistent HTTP status codes
+- Implement proper request/response validation
+- Use pagination for list endpoints
+- Implement proper CORS configuration
+- Use rate limiting for API endpoints
+
+### Security
+- Implement proper authentication and authorization
+- Use HTTPS in production
+- Sanitize all user inputs
+- Implement proper file upload security
+- Use environment variables for sensitive data
+
+### Database
+- Use Mongoose for MongoDB operations
+- Implement proper data validation
+- Use proper indexing for performance
+- Implement data migration scripts when needed
+
+## File Organization
+- Keep related functionality together
+- Use proper import/export patterns
+- Implement proper separation of concerns
+- Use configuration files for environment-specific settings
+
+## Testing
+- Write unit tests for business logic
+- Implement integration tests for API endpoints
+- Use proper test data and fixtures
+- Implement proper test coverage reporting
+
+## Deployment
+- Use Docker for containerization
+- Implement proper CI/CD pipelines
+- Use environment-specific configurations
+- Implement proper monitoring and logging
+
+## AI/ML Guidelines
+- Implement proper data preprocessing
+- Use appropriate ML models for the task
+- Implement proper model evaluation
+- Use proper data validation for ML inputs
+- Implement proper error handling for ML operations
