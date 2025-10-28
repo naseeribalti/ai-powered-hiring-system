@@ -1,21 +1,22 @@
 const express = require('express');
+const {
+  getUsers,
+  getUser,
+  updateProfile,
+  deleteUser,
+  getUserStats
+} = require('../controllers/userController');
+const { protect, authorize } = require('../middleware/authMiddleware');
+
 const router = express.Router();
 
-// Placeholder routes for users
-router.get('/', (req, res) => {
-  res.json({ message: 'Get users endpoint - to be implemented' });
-});
+// All routes are protected
+router.use(protect);
 
-router.get('/:id', (req, res) => {
-  res.json({ message: 'Get user by ID endpoint - to be implemented' });
-});
-
-router.put('/:id', (req, res) => {
-  res.json({ message: 'Update user endpoint - to be implemented' });
-});
-
-router.delete('/:id', (req, res) => {
-  res.json({ message: 'Delete user endpoint - to be implemented' });
-});
+router.get('/stats', authorize('admin'), getUserStats);
+router.get('/', authorize('admin'), getUsers);
+router.get('/:id', getUser);
+router.put('/profile', updateProfile);
+router.delete('/:id', deleteUser);
 
 module.exports = router;
