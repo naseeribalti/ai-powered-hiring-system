@@ -1,25 +1,29 @@
 const express = require('express');
+const {
+  applyToJob,
+  getApplicationsForJob,
+  getApplicationsForUser,
+  getApplication,
+  updateApplicationStatus,
+  addInterviewSchedule,
+  addFeedback,
+  deleteApplication
+} = require('../controllers/applicationController');
+const { protect, authorize } = require('../middleware/authMiddleware');
+
 const router = express.Router();
 
-// Placeholder routes for applications
-router.get('/', (req, res) => {
-  res.json({ message: 'Get applications endpoint - to be implemented' });
-});
+// All routes are protected
+router.use(protect);
 
-router.get('/:id', (req, res) => {
-  res.json({ message: 'Get application by ID endpoint - to be implemented' });
-});
-
-router.post('/', (req, res) => {
-  res.json({ message: 'Create application endpoint - to be implemented' });
-});
-
-router.put('/:id', (req, res) => {
-  res.json({ message: 'Update application endpoint - to be implemented' });
-});
-
-router.delete('/:id', (req, res) => {
-  res.json({ message: 'Delete application endpoint - to be implemented' });
-});
+// Application management routes
+router.post('/:jobId', authorize(['job_seeker']), applyToJob);
+router.get('/job/:jobId', authorize(['recruiter', 'admin']), getApplicationsForJob);
+router.get('/user/:userId', authorize(['job_seeker', 'admin']), getApplicationsForUser);
+router.get('/:id', getApplication);
+router.put('/:id/status', authorize(['recruiter', 'admin']), updateApplicationStatus);
+router.put('/:id/interview', authorize(['recruiter', 'admin']), addInterviewSchedule);
+router.put('/:id/feedback', authorize(['recruiter', 'admin']), addFeedback);
+router.delete('/:id', deleteApplication);
 
 module.exports = router;
